@@ -86,6 +86,8 @@ void MyFrame::CreateControls() {
 
 void MyFrame::OnDataViewSelectionChanged(wxDataViewEvent &event) {
     item_total_t *it = (item_total_t *) event.GetItem().GetID();
+    if (it == NULL)
+        return;
     printf("select year: %d, month: %d\n", it->year, it->month);
 }
 
