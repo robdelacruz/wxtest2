@@ -1,0 +1,40 @@
+wxDataViewModel overrides:
+void GetValue(wxVariant &variant, wxDataViewItem &item, uint col)
+bool SetValue(wxVariant &variant, wxDataViewItem &item, uint col)
+bool IsEnabled(wxDataViewItem &item, uint col)
+wxDataViewItem GetParent(wxDataViewItem &item)
+bool IsContainer(wxDataViewItem &item)
+uint GetChildren(wxDataViewItem &parent, wxDataViewItemArray &array)
+
+wxDataViewItem::wxDataViewItem(void *id)
+wxDataViewItem::IsOK()  true if ID not null
+void *wxDataViewItem::GetID()
+
+
+yyyy mm amt
+2024 0  n     (2024 subtotal)
+2023 0  n     (2023 subtotal)
+2022 0  n
+2021 0  n
+2024 1  n     (Jan 2024 subtotal)
+2024 2  n     (Feb 2024 subtotal)
+2024...
+2024 12 n     (Dec 2024 subtotal)
+2023 1  n     (Jan 2023 subtotal)
+2023...
+2023 12 n     (Dec 2023 subtotal)
+
+
+typedef struct {
+    int year, month;
+    double amt;
+} navnode_t;
+
+array_t navnodes = array_new(0);
+
+navnode_t *n = navnode_new(2024, 0, 123.45);
+array_add(navnodes, n);
+n = navnode_new(2023, 0, 1.2);
+array_add(navnodes, n);
+...
+
